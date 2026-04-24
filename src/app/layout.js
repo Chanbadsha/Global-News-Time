@@ -1,8 +1,7 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/shared/Header";
-import NavBar from "@/components/shared/NavBar";
-import Footer from "@/components/shared/Footer";
+
+import ThemeProviders from "@/provider/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,9 +18,12 @@ export default function RootLayout({ children }) {
     <html
       data-theme="light"
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable}  h-full antialiased`}
     >
-      <body className="min-h-full font-inter">{children}</body>
+      <body className="min-h-full font-inter">
+        <ThemeProviders>{children}</ThemeProviders>
+      </body>
     </html>
   );
 }
