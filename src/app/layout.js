@@ -21,15 +21,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable}  h-full antialiased`}
     >
-      <body className=" flex flex-col justify-center min-h-screen font-inter">
-        {/* Header and nav */}
-        <Header />
-        <NavBar />
-        {/* Main */}
-        <main className="flex-1">{children}</main>
-        {/* Footer */}
-        <Footer />
-      </body>
+      <body className="min-h-full font-inter">{children}</body>
     </html>
   );
 }
