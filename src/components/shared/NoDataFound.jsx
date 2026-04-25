@@ -7,7 +7,7 @@ const NoDataFound = () => {
   const { setCategoryId } = useApp();
 
   return (
-    <div className="bg-white flex flex-col items-center justify-center rounded-xl shadow-md border border-gray-100 p-10 text-center">
+    <div className="bg-white flex flex-1  flex-col items-center justify-center rounded-xl shadow-md border border-gray-100 p-10 text-center">
       <div className="text-5xl mb-4">📰</div>
 
       <h2 className="text-xl font-semibold text-gray-800">No News Available</h2>

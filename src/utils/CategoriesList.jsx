@@ -17,13 +17,19 @@ const CategoriesList = ({ categoryId, children }) => {
       href={`/categories/${categoryId}`}
       onClick={handleClick}
       className={`
-        w-9/12 mx-auto text-center font-semibold border cursor-pointer
-        py-2 mt-2 transition-colors duration-200
-        ${isActive ? "bg-gray-500 text-white" : "bg-white text-gray-700"}
-        hover:bg-gray-300
-      `}
+    flex items-center justify-between px-4 py-2.5 rounded-lg
+    text-sm font-medium transition-all duration-200
+    ${
+      isActive
+        ? "bg-black text-white shadow-sm"
+        : "text-gray-700 hover:bg-gray-100"
+    }
+  `}
     >
-      {children}
+      <span>{children}</span>
+
+      {/* Active indicator */}
+      {isActive && <span className="w-2 h-2 bg-white rounded-full"></span>}
     </Link>
   );
 };

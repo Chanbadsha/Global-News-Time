@@ -1,4 +1,5 @@
 import CategoriesSection from "@/components/homepage/CategoriesSection";
+import RightSideSection from "@/components/homepage/RightSideSection";
 import BreakingNews from "@/components/shared/BreakingNews";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
@@ -34,7 +35,7 @@ const MainLayout = ({ children }) => {
           {/* RIGHT SIDEBAR */}
           <aside className="lg:col-span-3 lg:sticky lg:top-18 h-fit">
             <h3 className="ml-4 font-semibold xl:text-xl mb-4">Login With</h3>
-            {/* <Header /> */}
+            <RightSideSection />
           </aside>
         </div>
       </div>

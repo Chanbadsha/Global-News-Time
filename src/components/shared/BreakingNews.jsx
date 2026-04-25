@@ -9,16 +9,18 @@ const BreakingNews = async () => {
   const datas = await res.json();
   // console.log(datas);
   return (
-    <div className="container  mx-auto py-2 bg-gray-200 rounded-lg flex justify-center items-center px-4">
-      <button className="text-2xl bg-red-500 px-4 py-2 rounded-r-lg">
+    <div className="container mx-auto my-2 flex items-center bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+      {/* Left Badge */}
+      <div className="bg-red-600 text-white px-4 py-2 font-semibold text-sm whitespace-nowrap">
         Latest
-      </button>
-      <Marquee className="overflow-y-hidden" pauseOnClick={true}>
+      </div>
+
+      {/* Marquee */}
+      <Marquee pauseOnHover className="flex items-center">
         {datas.map((data, ind) => (
           <span
-            className="text-foreground  hover:underline mr-2 bg-background py-2"
             key={ind}
-            // href={`/news/${data.id}`}
+            className="mx-4 text-sm text-gray-700 hover:text-black hover:underline cursor-pointer transition"
           >
             {data.title}
           </span>

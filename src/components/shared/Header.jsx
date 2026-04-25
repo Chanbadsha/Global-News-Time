@@ -1,14 +1,28 @@
+"use client";
+
 import { format } from "date-fns";
 
 const Header = () => {
   return (
-    <div className="text-center space-y-2  my-6">
-      <h1 className="lg:text-4xl xl:text-5xl leading-14 font-semibold lg:font-bold">
+    <header className="text-center my-8 space-y-3">
+      {/* Logo / Title */}
+      <h1 className="text-3xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
         Global News Times
       </h1>
-      <p>Journalism Without Fear or Favour</p>
-      <p className="font-semibold">{format(new Date(), "EEEE MMM dd,yyyy")}</p>
-    </div>
+
+      {/* Tagline */}
+      <p className="text-sm lg:text-base text-gray-500 italic">
+        Journalism Without Fear or Favour
+      </p>
+
+      {/* Divider */}
+      <div className="w-24 h-[2px] bg-black mx-auto rounded-full"></div>
+
+      {/* Date */}
+      <p className="text-sm font-medium text-gray-600">
+        {format(new Date(), "EEEE, MMM dd, yyyy")}
+      </p>
+    </header>
   );
 };
 
