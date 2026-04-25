@@ -8,8 +8,13 @@ const MainLayout = ({ children }) => {
     <div className="flex container mx-auto  flex-col min-h-screen">
       <Header />
       <BreakingNews />
-      <NavBar />
-      <main className="flex-1">{children}</main>
+      <div
+        className={`sticky mt-2   px-4 top-0 left-0 w-full   z-40 bg-gray-300  shadow-md
+        }`}
+      >
+        <NavBar />
+      </div>
+      <main className="flex-1 pt-4 lg:pt-8">{children}</main>
 
       <Footer />
     </div>

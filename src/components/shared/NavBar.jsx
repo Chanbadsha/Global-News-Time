@@ -21,7 +21,7 @@ const NavBar = () => {
   const [user, setUser] = useState(false);
 
   return (
-    <nav className="container flex-col gap-y-3 sm:flex-row sm:gap-y-0 mx-auto flex  items-center w-full justify-between   mt-5">
+    <nav className="container flex-col gap-y-3 sm:flex-row sm:gap-y-0 mx-auto flex  items-center w-full justify-between py-2">
       <ul className=" items-center flex-wrap  flex-1 justify-center  gap-4 flex">
         {navLinks.map((link, ind) => (
           <NavLink href={link.href} key={ind}>
@@ -31,7 +31,7 @@ const NavBar = () => {
       </ul>
       {/* Right Side Btn */}
       <div className="flex gap-2 items-center">
-        <Switch onChange={() => setTheme(theme === "dark" ? "light" : "dark")}>
+        {/* <Switch onChange={() => setTheme(theme === "dark" ? "light" : "dark")}>
           {({ isSelected }) => (
             <>
               <Switch.Control
@@ -51,7 +51,7 @@ const NavBar = () => {
               </Switch.Control>
             </>
           )}
-        </Switch>
+        </Switch> */}
 
         {user ? (
           <Link className="text-2xl lg:text-3xl xl:text-4xl" href={"/profile"}>

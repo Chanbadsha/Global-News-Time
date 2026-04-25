@@ -1,23 +1,30 @@
 "use client";
 
 import { useApp } from "@/provider/AppProvider";
-import { useState } from "react";
+import Link from "next/link";
 
 const CategoriesList = ({ categoryId, children }) => {
   const { categoryId: activeId, setCategoryId } = useApp();
-  let isActive;
-  const handleClick = (e) => {
-    e.preventDefault();
+
+  const isActive = activeId === categoryId;
+
+  const handleClick = () => {
     setCategoryId(categoryId);
   };
-  isActive = activeId === categoryId;
+
   return (
-    <li
+    <Link
+      href={`/categories/${categoryId}`}
       onClick={handleClick}
-      className={`${isActive ? " bg-gray-500 py-2 text-white " : "bg-white"} hover:bg-gray-300 hover:py-2 py-2 mt-2 text-gray-700 mx-auto  font-semibold w-9/12  text-center`}
+      className={`
+        w-9/12 mx-auto text-center font-semibold border cursor-pointer
+        py-2 mt-2 transition-colors duration-200
+        ${isActive ? "bg-gray-500 text-white" : "bg-white text-gray-700"}
+        hover:bg-gray-300
+      `}
     >
       {children}
-    </li>
+    </Link>
   );
 };
 

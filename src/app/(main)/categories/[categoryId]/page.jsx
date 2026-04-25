@@ -1,11 +1,12 @@
 import CategoriesSection from "@/components/homepage/CategoriesSection";
 import NewsSection from "@/components/homepage/NewsSection";
-import Header from "@/components/shared/Header";
 import GetNewsByCategories from "@/utils/GetNewsByCategories";
 import Link from "next/link";
 
-const HomePage = async ({ children }) => {
-  const newsList = await GetNewsByCategories("01");
+const NewsContainer = async ({ params }) => {
+  const { categoryId } = await params;
+  const newsList = await GetNewsByCategories(categoryId);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-screen">
       {/* LEFT SIDEBAR */}
@@ -48,10 +49,10 @@ const HomePage = async ({ children }) => {
       {/* RIGHT SIDEBAR */}
       <aside className="lg:col-span-3 lg:sticky lg:top-10 h-fit">
         <h3 className="ml-4 font-semibold xl:text-xl mb-4">Login With</h3>
-        <Header />
+        {/* <Header /> */}
       </aside>
     </div>
   );
 };
 
-export default HomePage;
+export default NewsContainer;
