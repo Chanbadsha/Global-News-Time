@@ -1,4 +1,5 @@
 "use client";
+import NavLink from "@/utils/NavLink";
 import { Moon, Sun } from "@gravity-ui/icons";
 import { Switch } from "@heroui/react";
 import { useTheme } from "next-themes";
@@ -23,13 +24,9 @@ const NavBar = () => {
     <nav className="container flex-col gap-y-3 sm:flex-row sm:gap-y-0 mx-auto flex  items-center w-full justify-between   mt-5">
       <ul className=" items-center flex-wrap  flex-1 justify-center  gap-4 flex">
         {navLinks.map((link, ind) => (
-          <Link
-            className="hover:text-foreground text-gray-400"
-            href={link.href}
-            key={ind}
-          >
+          <NavLink href={link.href} key={ind}>
             {link.name}
-          </Link>
+          </NavLink>
         ))}
       </ul>
       {/* Right Side Btn */}

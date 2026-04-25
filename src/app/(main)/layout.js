@@ -3,11 +3,9 @@ import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import NavBar from "@/components/shared/NavBar";
 
-import React from "react";
-
 const MainLayout = ({ children }) => {
   return (
-    <div className="flex  flex-col min-h-screen">
+    <div className="flex container mx-auto  flex-col min-h-screen">
       <Header />
       <BreakingNews />
       <NavBar />
