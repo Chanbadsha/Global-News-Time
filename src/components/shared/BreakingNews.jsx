@@ -9,19 +9,19 @@ const BreakingNews = async () => {
   const datas = await res.json();
   // console.log(datas);
   return (
-    <div className="container mt-4 mx-auto py-2 bg-gray-200 rounded-lg flex justify-center items-center px-4">
+    <div className="container  mx-auto py-2 bg-gray-200 rounded-lg flex justify-center items-center px-4">
       <button className="text-2xl bg-red-500 px-4 py-2 rounded-r-lg">
         Latest
       </button>
       <Marquee className="overflow-y-hidden" pauseOnClick={true}>
         {datas.map((data, ind) => (
-          <Link
+          <span
             className="text-foreground  hover:underline mr-2 bg-background py-2"
             key={ind}
-            href={`/news/${data.id}`}
+            // href={`/news/${data.id}`}
           >
             {data.title}
-          </Link>
+          </span>
         ))}
       </Marquee>
     </div>

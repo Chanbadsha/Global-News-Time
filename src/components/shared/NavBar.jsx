@@ -10,12 +10,11 @@ import { CgProfile } from "react-icons/cg";
 const NavBar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Latest News", href: "/news" },
-    { name: "World", href: "/world" },
-    { name: "Bangladesh", href: "/bangladesh" },
-    { name: "Sports", href: "/sports" },
-    { name: "Tech", href: "/tech" },
-    { name: "About", href: "/about" },
+    { name: "Latest News", href: "/news/latest-news" },
+    { name: "World", href: "/news/world-news" },
+    { name: "Bangladesh", href: "/news/bangladesh-news" },
+    { name: "Sports", href: "/news/sports-news" },
+    { name: "Tech", href: "/news/tech-news" },
   ];
   const { theme, setTheme } = useTheme();
   const [user, setUser] = useState(false);

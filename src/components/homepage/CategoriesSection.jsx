@@ -1,11 +1,8 @@
 import CategoriesList from "@/utils/CategoriesList";
+import GetCategories from "@/utils/GetCategories";
 
 const CategoriesSection = async () => {
-  const res = await fetch(
-    "https://openapi.programming-hero.com/api/news/categories",
-  );
-  const data = await res.json();
-  const categories = data.data.news_category;
+  const categories = await GetCategories();
   return (
     <ul className="flex flex-col items-center w-full">
       {categories.map((category) => (

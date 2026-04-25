@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaBookmark, FaShare } from "react-icons/fa";
 
 const NewsSection = ({ news }) => {
@@ -58,9 +59,12 @@ const NewsSection = ({ news }) => {
       <div className="px-4 py-3">
         <p className="text-sm text-gray-600 line-clamp-3">{news.details}</p>
 
-        <button className="text-orange-500 text-sm font-semibold mt-2">
+        <Link
+          href={`/news/${news._id}`}
+          className="text-orange-500 text-sm font-semibold mt-2"
+        >
           Read More
-        </button>
+        </Link>
       </div>
 
       {/* Footer */}
