@@ -1,19 +1,37 @@
 "use client";
 
+import signUpUser from "@/lib/signUpUser";
+import { Eye, EyeSlash } from "@gravity-ui/icons";
 import {
   Button,
   Description,
   FieldError,
   Form,
   Input,
+  InputGroup,
   Label,
   Separator,
   TextField,
 } from "@heroui/react";
+
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 
 const SignUpPage = () => {
-  const onSubmit = (e) => {};
+  const [isVisible, setIsVisible] = useState(false);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const userInfo = Object.fromEntries(formData.entries());
+
+    const { data, error } = await signUpUser(userInfo);
+    if (data.token) {
+      console.log(data);
+      redirect("/");
+    }
+  };
 
   return (
     <div className="min-h-[calc(100vh-54px)] flex items-center justify-center px-4 bg-gray-50">
@@ -68,7 +86,30 @@ const SignUpPage = () => {
             }}
           >
             <Label>Password</Label>
-            <Input className="bg-[#e8f0fe]" placeholder="Create a password" />
+
+            <InputGroup>
+              <InputGroup.Input
+                placeholder="Enter password"
+                className="w-full bg-[#e8f0fe] "
+                type={isVisible ? "text" : "password"}
+                // value={isVisible ? "text" : "••••••••"}
+              />
+              <InputGroup.Suffix className="pr-0">
+                <Button
+                  isIconOnly
+                  aria-label={isVisible ? "Hide password" : "Show password"}
+                  size="sm"
+                  variant="ghost"
+                  onPress={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? (
+                    <Eye className="size-4" />
+                  ) : (
+                    <EyeSlash className="size-4" />
+                  )}
+                </Button>
+              </InputGroup.Suffix>
+            </InputGroup>
             <Description>8+ characters, 1 uppercase, 1 number</Description>
             <FieldError />
           </TextField>
@@ -79,13 +120,34 @@ const SignUpPage = () => {
             name="confirmPassword"
             type="password"
             validate={(value) => {
-              // simple example (you can improve later)
               if (value.length === 0) return "Please confirm your password";
               return null;
             }}
           >
             <Label>Confirm Password</Label>
-            <Input className="bg-[#e8f0fe]" placeholder="Re-enter password" />
+
+            <InputGroup>
+              <InputGroup.Input
+                placeholder="Re-enter password"
+                className="w-full bg-[#e8f0fe] "
+                type={isVisible ? "text" : "password"}
+              />
+              <InputGroup.Suffix className="pr-0 ">
+                <Button
+                  isIconOnly
+                  aria-label={isVisible ? "Hide password" : "Show password"}
+                  size="sm"
+                  variant="ghost"
+                  onPress={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? (
+                    <Eye className="size-4" />
+                  ) : (
+                    <EyeSlash className="size-4" />
+                  )}
+                </Button>
+              </InputGroup.Suffix>
+            </InputGroup>
             <FieldError />
           </TextField>
 

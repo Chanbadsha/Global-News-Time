@@ -1,85 +1,37 @@
 "use client";
-import { Check } from "@gravity-ui/icons";
+import signInUser from "@/lib/signInUser";
+import { Check, Eye, EyeSlash } from "@gravity-ui/icons";
 import {
   Button,
   Description,
   FieldError,
   Form,
   Input,
+  InputGroup,
   Label,
   Separator,
   TextField,
 } from "@heroui/react";
+import { da } from "date-fns/locale";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 
 const SignInPage = () => {
-  const onSubmit = (e) => {};
+  const [isVisible, setIsVisible] = useState(false);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const userInfo = Object.fromEntries(formData.entries());
+    console.log(userInfo);
+    const { data, error } = await signInUser(userInfo);
+    console.log(data, error);
+    if (data?.token) {
+      redirect("/");
+    }
+  };
   return (
-    // <div
-    //   className={` mx-auto min-h-[calc(100vh-54px)] w-full flex items-center justify-center`}
-    // >
-    //   <div className=" bg-white px-40 py-30 rounded-lg">
-    //     <h3 className="ml-4 font-semibold xl:text-2xl mb-4 text-center">
-    //       Login Your Account
-    //     </h3>
-
-    //     <Separator className="mb-8" />
-    //     <Form className="flex  flex-col gap-4" onSubmit={onSubmit}>
-    //       <TextField
-    //         isRequired
-    //         name="email"
-    //         type="email"
-    //         validate={(value) => {
-    //           if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-    //             return "Please enter a valid email address";
-    //           }
-    //           return null;
-    //         }}
-    //       >
-    //         <Label>Email</Label>
-    //         <Input placeholder="john@example.com" />
-    //         <FieldError />
-    //       </TextField>
-    //       <TextField
-    //         isRequired
-    //         minLength={8}
-    //         name="password"
-    //         type="password"
-    //         validate={(value) => {
-    //           if (value.length < 8) {
-    //             return "Password must be at least 8 characters";
-    //           }
-    //           if (!/[A-Z]/.test(value)) {
-    //             return "Password must contain at least one uppercase letter";
-    //           }
-    //           if (!/[0-9]/.test(value)) {
-    //             return "Password must contain at least one number";
-    //           }
-    //           return null;
-    //         }}
-    //       >
-    //         <Label>Password</Label>
-    //         <Input placeholder="Enter your password" />
-    //         <Description>
-    //           Must be at least 8 characters with 1 uppercase and 1 number
-    //         </Description>
-    //         <FieldError />
-    //       </TextField>
-    //       <div className="flex flex-col gap-4 items-center">
-    //         <Button variant="secondary" className="w-full" type="submit">
-    //           Login
-    //         </Button>
-    //         <p className="text-xs">
-    //           Dont’t Have An Account ?
-    //           <Link className="text-red-500" href={"/auth/signup"}>
-    //             Register
-    //           </Link>
-    //         </p>
-    //       </div>
-    //     </Form>
-    //   </div>
-    // </div>
-
     <div className="min-h-[calc(100vh-54px)] flex items-center justify-center px-4 bg-gray-50">
       <div className="w-full max-w-md lg:max-w-xl lg:p-20 bg-white rounded-2xl shadow-md border border-gray-100 p-8">
         {/* Title */}
@@ -126,7 +78,29 @@ const SignInPage = () => {
             }}
           >
             <Label>Password</Label>
-            <Input className="bg-[#e8f0fe]" placeholder="Enter your password" />
+
+            <InputGroup>
+              <InputGroup.Input
+                placeholder="Enter your password"
+                className="w-full bg-[#e8f0fe] "
+                type={isVisible ? "text" : "password"}
+              />
+              <InputGroup.Suffix className="pr-0 ">
+                <Button
+                  isIconOnly
+                  aria-label={isVisible ? "Hide password" : "Show password"}
+                  size="sm"
+                  variant="ghost"
+                  onPress={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? (
+                    <Eye className="size-4" />
+                  ) : (
+                    <EyeSlash className="size-4" />
+                  )}
+                </Button>
+              </InputGroup.Suffix>
+            </InputGroup>
             <Description>8+ characters, 1 uppercase, 1 number</Description>
             <FieldError />
           </TextField>
