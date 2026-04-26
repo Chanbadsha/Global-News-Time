@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,6 +30,7 @@ const SignUpPage = () => {
     const { data, error } = await signUpUser(userInfo);
     if (data.token) {
       console.log(data);
+      toast.success("Successfully sign up.");
       redirect("/");
     }
   };

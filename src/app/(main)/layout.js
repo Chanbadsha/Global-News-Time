@@ -4,11 +4,13 @@ import BreakingNews from "@/components/shared/BreakingNews";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import NavBar from "@/components/shared/NavBar";
+import { Toaster } from "react-hot-toast";
 
 const MainLayout = ({ children }) => {
   return (
     <>
       <div className="flex container mx-auto  flex-col min-h-screen">
+        <Toaster />
         <Header />
         <BreakingNews />
         <div

@@ -16,6 +16,7 @@ import { da } from "date-fns/locale";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const SignInPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,7 +29,12 @@ const SignInPage = () => {
     const { data, error } = await signInUser(userInfo);
     console.log(data, error);
     if (data?.token) {
+      toast.success("Successfully signed in.");
       redirect("/");
+    } else if (error) {
+      toast.success("Sign in failed. Please try again.");
+    } else {
+      toast.error("Something went wrong.");
     }
   };
   return (

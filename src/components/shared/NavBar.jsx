@@ -2,23 +2,22 @@
 import { getSession } from "@/lib/auth-client";
 import NavLink from "@/utils/NavLink";
 
-import { useTheme } from "next-themes";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 
 const NavBar = () => {
   const [user, setUser] = useState(null);
+  const pathName = usePathname();
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Latest News", href: "/latest-news" },
+    { name: "Latest", href: "/latest-news" },
     { name: "World", href: "/world-news" },
-    { name: "Bangladesh", href: "/bangladesh-news" },
     { name: "Sports", href: "/sports-news" },
-    { name: "Tech", href: "/tech-news" },
+    { name: "Dashboard", href: "/dashboard", protected: true },
   ];
-
   useEffect(() => {
     const fetchUser = async () => {
       const data = await getSession();
@@ -50,20 +49,21 @@ const NavBar = () => {
       </ul>
       {/* Right Side Btn */}
       <div className="flex items-center gap-3">
-        {user ? (
+        {user && pathName !== "/dashboard" && (
           <Link
-            suppressHydrationWarning
-            href="/profile"
+            href="/dashboard"
             className="p-2 rounded-full hover:bg-gray-100 transition"
           >
             <CgProfile className="text-2xl lg:text-3xl text-gray-800" />
           </Link>
-        ) : (
+        )}
+
+        {user && pathName === "/dashboard" && ""}
+
+        {!user && pathName !== "/dashboard" && (
           <Link
             href="/auth/signin"
-            suppressHydrationWarning
-            className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium
-                 hover:bg-gray-800 transition shadow-sm"
+            className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition shadow-sm"
           >
             Login
           </Link>
