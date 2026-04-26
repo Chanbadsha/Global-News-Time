@@ -1,12 +1,15 @@
 "use client";
+import { getSession } from "@/lib/auth-client";
 import NavLink from "@/utils/NavLink";
 
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 
 const NavBar = () => {
+  const [user, setUser] = useState(null);
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Latest News", href: "/latest-news" },
@@ -16,7 +19,20 @@ const NavBar = () => {
     { name: "Tech", href: "/tech-news" },
   ];
 
-  const [user, setUser] = useState(false);
+  useEffect(() => {
+    const fetchUser = async () => {
+      const data = await getSession();
+      const currentUser = data?.data?.user;
+
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   return (
     <nav className="container flex-col gap-y-3 sm:flex-row sm:gap-y-0 mx-auto flex  items-center w-full justify-between py-2">
