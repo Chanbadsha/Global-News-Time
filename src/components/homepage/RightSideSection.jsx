@@ -7,15 +7,24 @@ const RightSideSection = () => {
     <div>
       {/* Login Btn */}
       <div className="flex w-full max-w-xs flex-col gap-3">
-        <Button className="w-full" variant="tertiary">
+        <Button
+          className="w-full text-white bg-gray-700 hover:bg-accent"
+          variant="tertiary"
+        >
           <Icon icon="devicon:google" />
           Sign in with Google
         </Button>
-        <Button className="w-full" variant="tertiary">
+        <Button
+          className="w-full text-white bg-gray-700 hover:bg-accent"
+          variant="tertiary"
+        >
           <Icon icon="mdi:github" />
           Sign in with GitHub
         </Button>
-        <Button className="w-full" variant="tertiary">
+        <Button
+          className="w-full text-white bg-gray-700 hover:bg-accent "
+          variant="tertiary"
+        >
           <Icon icon="ion:logo-apple" />
           Sign in with Apple
         </Button>
@@ -63,27 +72,6 @@ const RightSideSection = () => {
         </div>
       </div>
 
-      {/* Newsletter Section */}
-      <div className="max-w-md mx-4 mt-6 bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-        <h4 className="text-lg font-semibold text-gray-800">Stay Updated</h4>
-
-        <p className="text-sm text-gray-500 mt-1">
-          Get the latest news delivered straight to your inbox.
-        </p>
-
-        <div className="mt-4 flex flex-col gap-3">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="px-4 py-2.5 rounded-lg text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-gray-300 transition"
-          />
-
-          <Button className="bg-black text-white font-medium hover:bg-gray-800 transition">
-            Subscribe
-          </Button>
-        </div>
-      </div>
-
       {/* Trending Tags */}
       <div className="max-w-md mx-4 mt-6 bg-white rounded-2xl shadow-md border border-gray-100 p-5">
         <h4 className="text-lg font-semibold text-gray-800 mb-3">
@@ -106,6 +94,27 @@ const RightSideSection = () => {
               #{tag}
             </span>
           ))}
+        </div>
+      </div>
+
+      {/* Newsletter Section */}
+      <div className="max-w-md mx-4 mt-6 bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+        <h4 className="text-lg font-semibold text-gray-800">Stay Updated</h4>
+
+        <p className="text-sm text-gray-500 mt-1">
+          Get the latest news delivered straight to your inbox.
+        </p>
+
+        <div className="mt-4 flex flex-col gap-3">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="px-4 py-2.5 rounded-lg text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-gray-300 transition"
+          />
+
+          <Button className="bg-black text-white font-medium hover:bg-gray-800 transition">
+            Subscribe
+          </Button>
         </div>
       </div>
     </div>

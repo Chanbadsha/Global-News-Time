@@ -1,10 +1,12 @@
-import React from "react";
+import NavBar from "@/components/shared/NavBar";
 
-const AuthLayout = () => {
+const AuthLayout = ({ children }) => {
   return (
-    <div>
-      <h1>This is auth lay</h1>
-    </div>
+    <>
+      {/* Nav */}
+      <NavBar />
+      <main>{children}</main>
+    </>
   );
 };
 

@@ -17,12 +17,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      // data-theme="light"
+      data-theme="light"
       lang="en"
       suppressHydrationWarning
       className={`${inter.variable}  h-full antialiased`}
     >
-      <body className="min-h-full font-inter">
+      <body className="min-h-full font-inter ">
         <AppProvider>
           <ThemeProviders>{children}</ThemeProviders>
         </AppProvider>

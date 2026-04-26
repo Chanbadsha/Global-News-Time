@@ -4,7 +4,7 @@ import { format } from "date-fns";
 
 const Header = () => {
   return (
-    <header className="text-center my-8 space-y-3">
+    <header className="text-center my-8 space-y-3 ">
       {/* Logo / Title */}
       <h1 className="text-3xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
         Global News Times

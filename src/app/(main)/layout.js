@@ -8,7 +8,6 @@ import NavBar from "@/components/shared/NavBar";
 const MainLayout = ({ children }) => {
   return (
     <>
-      {" "}
       <div className="flex container mx-auto  flex-col min-h-screen">
         <Header />
         <BreakingNews />
