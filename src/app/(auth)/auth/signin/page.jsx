@@ -31,10 +31,6 @@ const SignInPage = () => {
     if (data?.token) {
       toast.success("Successfully signed in.");
       redirect("/");
-    } else if (error) {
-      toast.success("Sign in failed. Please try again.");
-    } else {
-      toast.error("Something went wrong.");
     }
   };
   return (
