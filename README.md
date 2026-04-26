@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Global News Times
 
-## Getting Started
+Global News Times is a modern and responsive news web application built with Next.js. It provides real-time news updates across multiple categories including world news, sports, technology, and Bangladesh news in a single platform. The goal of this project is to deliver fast, organized, and user-friendly news browsing experience.
 
-First, run the development server:
+## Features
 
-```bash
+- Real-time latest news updates  
+- Multiple categories such as World, Sports, Technology, and Bangladesh news  
+- User authentication system with protected routes  
+- User dashboard for personalized experience  
+- Fully responsive design for mobile, tablet, and desktop  
+- Fast performance using Next.js App Router  
+- Dynamic routing for detailed news pages  
+- Bookmark or save news feature (if implemented)  
+- Clean and modern UI using Tailwind CSS  
+
+## Tech Stack
+
+- Next.js for frontend framework  
+- React for UI development  
+- Tailwind CSS for styling  
+- React Icons for icon system  
+- Custom authentication system or auth client  
+- REST API or mock API for news data  
+
+## Project Structure
+
+app  
+components  
+dashboard  
+latest-news  
+world-news  
+bangladesh-news  
+sports-news  
+auth  
+lib  
+utils  
+public  
+
+## Installation and Setup
+
+First, clone the repository:
+
+git clone https://github.com/Chanbadsha/global-news-times.git
+
+Then navigate to the project directory:
+
+cd global-news-times
+
+Install dependencies:
+
+npm install
+
+Run the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the project in your browser:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+Create a .env.local file in the root directory and add the required variables:
 
-To learn more about Next.js, take a look at the following resources:
+NEXT_PUBLIC_API_URL=your_api_url  
+NEXT_PUBLIC_AUTH_SECRET=your_auth_secret  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/ Home page  
+/latest-news Latest news page  
+/world-news World news category  
+/bangladesh-news Bangladesh news category  
+/sports-news Sports news category  
+/dashboard User dashboard (protected route)  
 
-## Deploy on Vercel
+## Protected Routes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Some routes like dashboard are protected and require user authentication to access.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contribution
+
+You can contribute to this project by following these steps:
+
+Fork the repository  
+Create a new branch  
+Make your changes  
+Commit your changes  
+Push to the branch  
+Create a pull request  
+
+## License
+
+This project is licensed under the MIT License.
+
+## Author
+
+Developed by Chan Badsha Bhuiyan
