@@ -1,7 +1,7 @@
 import { createAuthClient } from "better-auth/client";
 
 export const authClient = createAuthClient({
-  baseURL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
+  baseURL: "https://global-news-time.vercel.app/",
 });
 
 export const { signIn, signUp, signOut, getSession, useSession } = authClient;
