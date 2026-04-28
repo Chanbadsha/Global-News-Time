@@ -1,4 +1,3 @@
-import { getSession, useSession } from "@/lib/auth-client";
 import { Button, Separator } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";

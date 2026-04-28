@@ -16,7 +16,7 @@ const Header = () => {
       </p>
 
       {/* Divider */}
-      <div className="w-24 h-[2px] bg-black mx-auto rounded-full"></div>
+      <div className="w-24 h-0.5 bg-black mx-auto rounded-full"></div>
 
       {/* Date */}
       <p className="text-sm font-medium text-gray-600">
